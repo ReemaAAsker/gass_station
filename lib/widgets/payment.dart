@@ -312,8 +312,16 @@ class _CardDetailsScreenState extends State<CardDetailsScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Image(image: AssetImage('assets/images/${visaPhoto}')),
-            Text(labelInCard, style: TextStyle(color: primaryColor)),
+            SizedBox(
+              width: 50,
+              child: Image(image: AssetImage('assets/images/${visaPhoto}')),
+            ),
+
+            Text(
+              labelInCard,
+              style: TextStyle(color: primaryColor, fontSize: 12),
+            ),
+
             Icon(Icons.arrow_forward_ios, color: primaryColor),
           ],
         ),
