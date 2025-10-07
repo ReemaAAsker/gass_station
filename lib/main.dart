@@ -23,7 +23,7 @@ class APP extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       //CardDetailsScreen//WelcomeScreen
-      home: const CardDetailsScreen(),
+      home: const WelcomeScreen(),
     );
   }
 }
