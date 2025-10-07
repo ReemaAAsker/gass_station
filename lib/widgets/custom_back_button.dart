@@ -16,7 +16,11 @@ class _CustomBackButtonState extends State<CustomBackButton> {
         height: 40,
         width: 40,
         child: OutlinedButton(
-          onPressed: () => Navigator.canPop(context),
+          onPressed: () {
+            if (Navigator.canPop(context)) {
+              Navigator.pop(context);
+            }
+          },
           child: const Icon(Icons.arrow_back_ios, color: Colors.black),
 
           style: OutlinedButton.styleFrom(

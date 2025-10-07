@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gas_station/screens/login.dart';
 import 'package:gas_station/screens/reset_password.dart';
 import 'package:gas_station/screens/verify_code.dart';
 import 'package:gas_station/utils/constants.dart';
@@ -29,7 +30,9 @@ class ForgotPasswordScreen extends StatelessWidget {
                 child: SizedBox(
                   width: 300,
                   height: 300,
-                  child: Image(image: AssetImage('assets/forget_pass.png')),
+                  child: Image(
+                    image: AssetImage('assets/images/forget_pass.png'),
+                  ),
                 ),
               ),
 
@@ -68,7 +71,14 @@ class ForgotPasswordScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginScreen(),
+                            ),
+                          );
+                        },
                         child: const Text(
                           "Log in   ",
                           style: TextStyle(

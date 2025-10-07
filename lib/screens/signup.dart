@@ -32,7 +32,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 child: SizedBox(
                   height: 100,
 
-                  child: Image(image: AssetImage('assets/signup.png')),
+                  child: Image(image: AssetImage('assets/images/signup.png')),
                 ),
               ),
 
@@ -120,7 +120,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       });
                     },
                   ),
-                  const Text("I accept the terms and privacy policy"),
+                  const Text(
+                    "I accept the terms and privacy policy",
+                    style: TextStyle(fontSize: 12),
+                  ),
                 ],
               ),
               SizedBox(height: 30),
@@ -133,7 +136,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Don’t have an account? "),
+                  const Text(
+                    "Don’t have an account? ",
+                    style: TextStyle(fontSize: 12),
+                  ),
                   GestureDetector(
                     onTap: () => Navigator.pushReplacement(
                       context,
@@ -146,6 +152,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       style: TextStyle(
                         color: secoundaryColor,
                         fontWeight: FontWeight.bold,
+                        fontSize: 12,
                       ),
                     ),
                   ),

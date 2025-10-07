@@ -20,7 +20,7 @@ class PasswordChanged extends StatelessWidget {
 
               SizedBox(height: 30),
 
-              Image(image: AssetImage('assets/signup.png')),
+              Image(image: AssetImage('assets/images/signup.png')),
               Text("Password changed", style: scoundryTextStyle),
               SizedBox(height: 10),
               Center(
