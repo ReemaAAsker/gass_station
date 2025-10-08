@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gas_station/screens/login.dart';
 import 'package:gas_station/screens/welcom_screen.dart';
-import 'package:gas_station/widgets/payment.dart';
 
 void main(List<String> args) {
   runApp(APP());
@@ -22,7 +21,6 @@ class APP extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      //CardDetailsScreen//WelcomeScreen
       home: const WelcomeScreen(),
     );
   }
