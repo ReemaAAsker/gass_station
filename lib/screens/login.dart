@@ -4,6 +4,7 @@ import 'package:gas_station/screens/forget_password.dart';
 import 'package:gas_station/screens/signup.dart';
 import 'package:gas_station/screens/welcom_screen.dart';
 import 'package:gas_station/services/auth/firebase_services.dart';
+import 'package:gas_station/services/shred_pref_services.dart';
 import 'package:gas_station/widgets/custom_notification.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -37,13 +38,17 @@ class _LoginScreenState extends State<LoginScreen> {
 
   /// ✅ Check SharedPreferences for saved login
   Future<void> _checkAutoLogin() async {
-    final prefs = await SharedPreferences.getInstance();
-    final savedRemember = prefs.getBool('rememberMe') ?? false;
+    // final prefs = await SharedPreferences.getInstance();
+    final savedRemember = SharedPrefService.getRememberMe();
+    // final savedRemember = prefs.getBool('rememberMe') ?? false;
 
     if (!savedRemember) return;
 
-    final savedEmail = prefs.getString('email');
-    final savedPassword = prefs.getString('password');
+    // final savedEmail = prefs.getString('email');
+    final savedEmail = SharedPrefService.getEmail();
+
+    // final savedPassword = prefs.getString('password');
+    final savedPassword = SharedPrefService.getPassword();
 
     if (savedEmail != null && savedPassword != null) {
       final success = await _authService.loginUser(
@@ -62,13 +67,20 @@ class _LoginScreenState extends State<LoginScreen> {
 
   /// ✅ Save login credentials
   Future<void> _saveLoginInfo() async {
-    final prefs = await SharedPreferences.getInstance();
+    // final prefs = await SharedPreferences.getInstance();
+    // final prefs = await SharedPrefService.init();
+
     if (rememberMe) {
-      await prefs.setString('email', _emailController.text.trim());
-      await prefs.setString('password', _passwordController.text.trim());
-      await prefs.setBool('rememberMe', true);
+      await SharedPrefService.saveLogin(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+        rememberMe: true,
+      );
+      // await prefs.setString('email', _emailController.text.trim());
+      // await prefs.setString('password', _passwordController.text.trim());
+      // await prefs.setBool('rememberMe', true);
     } else {
-      await prefs.clear();
+      SharedPrefService.clr();
     }
   }
 

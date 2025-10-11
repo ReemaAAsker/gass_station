@@ -41,4 +41,8 @@ class SharedPrefService {
     await _prefs!.remove('password');
     await _prefs!.setBool('rememberMe', false);
   }
+
+  static void clr() {
+    _prefs?.clear();
+  }
 }
