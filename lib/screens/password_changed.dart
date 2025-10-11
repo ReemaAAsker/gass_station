@@ -32,9 +32,10 @@ class PasswordChanged extends StatelessWidget {
               SizedBox(height: 70),
               CustomPrimaryButton(
                 label: 'Back to login',
-                onPressed: () => Navigator.pushReplacement(
+                onPressed: () => Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(builder: (context) => LoginScreen()),
+                  (route) => false,
                 ),
               ),
             ],

@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:gas_station/screens/admin_page.dart';
+import 'package:gas_station/screens/delivery_page.dart';
 import 'package:gas_station/screens/login.dart';
+import 'package:gas_station/screens/reset_password.dart';
+import 'package:gas_station/screens/user_page.dart';
+import 'package:gas_station/services/shred_pref_services.dart';
 import 'package:gas_station/utils/constants.dart';
 import 'package:gas_station/widgets/custom_back_button.dart';
 import 'package:gas_station/widgets/custom_primary_button.dart';
@@ -17,7 +22,23 @@ class WelcomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               // Back button
-              CustomBackButton(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomBackButton(),
+                  IconButton(
+                    icon: Icon(Icons.logout, size: 30, color: Colors.red),
+                    onPressed: () async {
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                        (value) => false,
+                      );
+                      await SharedPrefService.logout();
+                    },
+                  ),
+                ],
+              ),
               const SizedBox(height: 10),
               Center(
                 child: const Text("Gass Station", style: primaryTextStyle),
@@ -43,7 +64,7 @@ class WelcomeScreen extends StatelessWidget {
                 label: 'USER',
                 onPressed: () => Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                  MaterialPageRoute(builder: (context) => UserPage()),
                 ),
               ),
               SizedBox(height: 20),
@@ -52,7 +73,7 @@ class WelcomeScreen extends StatelessWidget {
                 label: 'ADMIN',
                 onPressed: () => Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                  MaterialPageRoute(builder: (context) => AdminPage()),
                 ),
               ),
               SizedBox(height: 20),
@@ -60,11 +81,33 @@ class WelcomeScreen extends StatelessWidget {
                 label: 'DELIVERY DRIVER',
                 onPressed: () => Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                  MaterialPageRoute(builder: (context) => DeliveryPage()),
                 ),
               ),
 
               SizedBox(height: 20),
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.amber),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => ResetPassword()),
+                    );
+                  },
+                  child: const Text(
+                    'Reset password',
+                    style: TextStyle(
+                      fontSize: 10,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
