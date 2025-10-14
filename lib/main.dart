@@ -13,7 +13,7 @@ void main(List<String> args) async {
   EmailOTP.config(
     appName: 'Gas Station',
     otpType: OTPType.numeric,
-    expiry: 30000,
+    expiry: 40000,
     emailTheme: EmailTheme.v6,
     otpLength: 4,
   );

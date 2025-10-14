@@ -17,7 +17,7 @@ class VerifyCodeScreen extends StatefulWidget {
 }
 
 class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
-  static const int resendDelay = 25;
+  static const int resendDelay = 30;
   late Timer _timer;
 
   int secondsRemaining = resendDelay;
