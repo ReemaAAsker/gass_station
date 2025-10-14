@@ -28,7 +28,7 @@ class SharedPrefService {
   // ✅ Get saved email
   static String? getEmail() => _prefs?.getString('email');
 
-  // ✅ Get saved password
+  // ✅ Get saved passsword
   static String? getPassword() => _prefs?.getString('password');
 
   // ✅ Check remember status

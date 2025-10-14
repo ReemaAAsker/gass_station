@@ -2,7 +2,6 @@ import 'package:email_otp/email_otp.dart';
 import 'package:flutter/material.dart';
 import 'package:gas_station/firebase_options.dart';
 import 'package:gas_station/screens/login.dart';
-import 'package:gas_station/screens/welcom_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:gas_station/services/shred_pref_services.dart';
 
